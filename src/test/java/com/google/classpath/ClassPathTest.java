@@ -73,9 +73,12 @@ public abstract class ClassPathTest extends TestCase {
   }
 
   public void testListPackages() throws Exception {
+      for(String pkg : path.listPackages("")){
+          System.out.println("pkg " + pkg);
+      }
     assertArrayEqualsAnyOrder(path.listPackages(""), "A", "META-INF");
     assertArrayEqualsAnyOrder(path.listPackages("/"), "A", "META-INF");
-    System.out.println("Inside " + this + "Listing packages");
+    //System.out.println("Inside " + this + "Listing packages");
     //Arrays.stream(path.listPackages("A")).forEach(System.out::println);
     
     //EC: It's not recursive
