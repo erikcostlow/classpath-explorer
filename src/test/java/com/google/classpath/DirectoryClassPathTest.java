@@ -15,16 +15,22 @@
  */
 package com.google.classpath;
 
+import main.java.com.google.classpath.ClassPath;
+import main.java.com.google.classpath.DirectoryClassPath;
 import java.io.File;
-import java.io.IOException;
+import java.util.Arrays;
 
-public class CompositClassPathTest extends ClassPathTest {
+public class DirectoryClassPathTest extends ClassPathTest {
 
   @Override
-  protected ClassPath createClassPath() throws IOException {
-    ClassPath dirClassPath = new DirectoryClassPath(new File("test-data"));
-    ClassPath jarClassPath = new JARClassPath(new File("test-data.jar")).loadEntries();
-    return new CompositeClassPath(dirClassPath, jarClassPath);
+  protected ClassPath createClassPath() {
+    return new DirectoryClassPath(new File("test-data"));
+  }
+  
+  public void testNonExistantDirectory() throws Exception {
+    DirectoryClassPath classPath = new DirectoryClassPath(new File("NON_EXISTENT"));
+    assertTrue(Arrays.equals(new String[0], classPath.listPackages("NON_EXISTENT")));
+    assertTrue(Arrays.equals(new String[0], classPath.listResources("NON_EXISTENT")));
   }
 
 }

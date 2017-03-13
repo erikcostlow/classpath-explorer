@@ -15,16 +15,16 @@
  */
 package com.google.classpath;
 
-import static com.google.classpath.RegExpResourceFilter.ANY;
-import junit.framework.TestCase;
+import main.java.com.google.classpath.ClassPath;
+import main.java.com.google.classpath.JARClassPath;
+import java.io.File;
+import java.io.IOException;
 
-public class RegExpResourceFilterTest extends TestCase {
+public class JARClassPathTest extends ClassPathTest {
 
-  public void testMatchPackage() throws Exception {
-    assertFalse(new RegExpResourceFilter("match", ANY).match("X", "X"));
-    assertTrue(new RegExpResourceFilter("match", ANY).match("match", "X"));
-    assertTrue(new RegExpResourceFilter(ANY, ANY).match("X", "X"));
-    assertTrue(new RegExpResourceFilter("match", "match").match("match", "match"));
+  @Override
+  protected ClassPath createClassPath() throws IOException {
+    return new JARClassPath(new File("test-data.jar")).loadEntries();
   }
-  
+
 }

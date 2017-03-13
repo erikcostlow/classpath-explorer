@@ -15,14 +15,20 @@
  */
 package com.google.classpath;
 
+import main.java.com.google.classpath.ClassPath;
+import main.java.com.google.classpath.JARClassPath;
+import main.java.com.google.classpath.CompositeClassPath;
+import main.java.com.google.classpath.DirectoryClassPath;
 import java.io.File;
 import java.io.IOException;
 
-public class JARClassPathTest extends ClassPathTest {
+public class CompositClassPathTest extends ClassPathTest {
 
   @Override
   protected ClassPath createClassPath() throws IOException {
-    return new JARClassPath(new File("test-data.jar")).loadEntries();
+    ClassPath dirClassPath = new DirectoryClassPath(new File("test-data"));
+    ClassPath jarClassPath = new JARClassPath(new File("test-data.jar")).loadEntries();
+    return new CompositeClassPath(dirClassPath, jarClassPath);
   }
 
 }

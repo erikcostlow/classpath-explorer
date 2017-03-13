@@ -15,6 +15,8 @@
  */
 package com.google.classpath;
 
+import main.java.com.google.classpath.ClassPath;
+import main.java.com.google.classpath.ClassPathFactory;
 import static java.io.File.separator;
 import static java.io.File.separatorChar;
 

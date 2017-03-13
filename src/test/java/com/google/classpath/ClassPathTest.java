@@ -15,7 +15,9 @@
  */
 package com.google.classpath;
 
-import static com.google.classpath.RegExpResourceFilter.ANY;
+import main.java.com.google.classpath.RegExpResourceFilter;
+import main.java.com.google.classpath.ClassPath;
+import static main.java.com.google.classpath.RegExpResourceFilter.ANY;
 
 import java.io.IOException;
 import java.io.InputStream;
