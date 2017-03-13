@@ -1,13 +1,4 @@
 <project default="build">
-
-	<typedef resource="com/googlecode/svntask/svntask.xml">
-		<classpath>
-			<fileset dir="lib/svn">
-				<include name="svnkit.jar" />
-				<include name="svntask.jar" />
-			</fileset>
-		</classpath>
-	</typedef>
 	
 	<target name="createTestJAR">
 		<jar destfile="test-data.jar">
@@ -29,7 +20,7 @@
 	</target>
 
 	<target name="compile" depends="init">
-		<javac srcdir="src" destdir="target/bin" debug="on" source="1.5" target="1.5"/>
+		<javac srcdir="src" destdir="target/bin" debug="on" source="1.8" target="1.8"/>
 	</target>
 
 	<target name="compile-test" depends="compile, createTestJAR">
@@ -59,13 +50,7 @@
 	<target name="build" depends="clean,dist">
 	</target>
 
-	<target name="revision">
-		<svn>
-			<info path="." revisionProperty="revision" />
-		</svn>
-	</target>
-
-	<target name="dist" depends="test, revision">
+	<target name="dist" depends="test">
 		<jar destfile="target/dist/classpath-explorer-r${revision}.jar">
 			<fileset dir="target/bin" />
 		</jar>

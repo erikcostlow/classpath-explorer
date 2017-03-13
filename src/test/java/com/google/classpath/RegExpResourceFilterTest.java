@@ -13,10 +13,9 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package test.java.com.google.classpath;
+package com.google.classpath;
 
-import main.java.com.google.classpath.RegExpResourceFilter;
-import static main.java.com.google.classpath.RegExpResourceFilter.ANY;
+import static com.google.classpath.RegExpResourceFilter.ANY;
 import junit.framework.TestCase;
 
 public class RegExpResourceFilterTest extends TestCase {

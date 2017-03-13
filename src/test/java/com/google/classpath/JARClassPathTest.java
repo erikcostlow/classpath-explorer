@@ -15,8 +15,6 @@
  */
 package com.google.classpath;
 
-import main.java.com.google.classpath.ClassPath;
-import main.java.com.google.classpath.JARClassPath;
 import java.io.File;
 import java.io.IOException;
 

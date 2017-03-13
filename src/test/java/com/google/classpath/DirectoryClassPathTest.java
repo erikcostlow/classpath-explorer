@@ -15,8 +15,6 @@
  */
 package com.google.classpath;
 
-import main.java.com.google.classpath.ClassPath;
-import main.java.com.google.classpath.DirectoryClassPath;
 import java.io.File;
 import java.util.Arrays;
 
